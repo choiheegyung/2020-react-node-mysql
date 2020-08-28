@@ -13,7 +13,7 @@ let app = http.createServer(function(request, response){
     password : '122512',
     database : 'db'
   });
-  connection.connect(); 
+  connection.connect();; 
 
   if(request.url == '/'){
     connection.query('SELECT id, contents, pub_date, moreinfo, image FROM trendbird;', function (error, database) {
