@@ -5,8 +5,9 @@ class Search extends PureComponent {
   // onChange = (e) => {
   //   console.log(e.target.value)
   // }
-  onSearch = (e) => {
+  onClick = (e) => {
     e.preventDefault()
+
     console.log(e.target.term.value)
   }
   render() {  

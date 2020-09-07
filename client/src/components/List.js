@@ -7,20 +7,22 @@ class List extends PureComponent {
     let list = [];
 
     if (term === ''){
-      console.log('a')
+      data.map(i => {
+        let datearray = i.pub_date.split('-');  
+        list.push(<tr>
+          <td>{datearray[0]}-{datearray[1]}</td>
+          <td>{i.contents}</td>
+          <td>{i.more_info}</td>
+          <td><img src={i.image} alt="IMAGE" width='200'/></td>
+        </tr>)
+      })
     }
     else {
       console.log(term)
+      // data = data.filter((term))
     }
     
-    data.map(i => {
-      let datearray = i.pub_date.split('-');  
-      list.push(<tr>
-        <td>{datearray[0]}-{datearray[1]}</td>
-        <td>{i.contents}</td>
-        <td>{i.more_info}</td>
-        <td><img src={i.image} alt="IMAGE" width='200'/></td>
-      </tr>)})
+    
     return (
       <Fragment>
         {list}
