@@ -3,7 +3,9 @@ import data from './data.json';
 
 function reducer(state, action){
   if (state===undefined){
-    state = data
+    state = {
+      term : '',
+      data : data}
   }
   return state
 }

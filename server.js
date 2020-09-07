@@ -11,12 +11,12 @@ let app = http.createServer(function(request, response){
     host     : 'localhost',
     user     : 'root',
     password : '122512',
-    database : 'db'
+    database : 'trendbird'
   });
-  connection.connect();; 
+  connection.connect();
 
   if(request.url == '/'){
-    connection.query('SELECT id, contents, pub_date, moreinfo, image FROM trendbird;', function (error, database) {
+    connection.query('SELECT id, pub_date, contents, more_info, image FROM trendbird;', function (error, database) {
       if (error) {console.log(error);}
       data = database
       fs.writeFile('./client/src/store/data.json', JSON.stringify(data), 'utf8', function(err){
@@ -26,6 +26,9 @@ let app = http.createServer(function(request, response){
     });
   }
   
+  if(request.url =='/favicon.ico'){
+    return response.writeHead(404);
+  }
   if(request.url =='/favicon.ico'){
     return response.writeHead(404);
   }

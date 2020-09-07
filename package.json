@@ -10,11 +10,12 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
+    "node": "^14.8.0",
     "nodemon": "^2.0.4",
-    "server": "^1.0.30",
-    "seminar": "file:client"
+    "seminar": "file:client",
+    "server": "^1.0.30"
   },
   "devDependencies": {
-    "concurrently": "^4.0.1"
+    "concurrently": "^4.1.2"
   }
 }
