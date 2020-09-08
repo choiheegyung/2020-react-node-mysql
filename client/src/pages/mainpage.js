@@ -9,13 +9,17 @@ class Mainpage extends PureComponent {
         <h1>Trend_bird Database</h1>
         <Search/>
         <table>
+          <thead>
           <tr>
             <th>PUB_DATE</th>
             <th>CONTENTS</th>
             <th>MORE_INFO</th>
             <th>IMAGE</th>
           </tr>
-          <ListContainer/>
+          </thead>
+          <tbody>
+            <ListContainer/>
+          </tbody>
         </table>
       </body>
     )
