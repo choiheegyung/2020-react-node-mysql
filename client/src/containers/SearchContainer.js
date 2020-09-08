@@ -3,11 +3,17 @@ import {connect} from 'react-redux'
 
 function mapDispatchToProps(dispatch){
   return {
-    // data: state
-    // term : state.term,
-    // data : state.data
-    onClick:function(term){
-      dispatch({type:'SEARCH', term:term});
+
+    // onClick = (e) => {
+    //   e.preventDefault()
+    //   console.log(e.target.term.value)
+    //   dispatch({type:'SEARCH', term:e.target.term.value});
+    // }  
+
+    onClick:function(e){
+      e.preventDefault()
+      console.log(e.target.term.value)
+      dispatch({type:'SEARCH', term:e.target.term.value});
     }
   }
 }

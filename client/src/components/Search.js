@@ -1,23 +1,17 @@
 import React, { PureComponent } from 'react';
 
 class Search extends PureComponent {
-  
-  // onChange = (e) => {
-  //   console.log(e.target.value)
-  // }
   onClick = (e) => {
     e.preventDefault()
-
     console.log(e.target.term.value)
-  }
-  render() {  
+  }  
+  render() {
     return (
-      <form onSubmit={this.onSearch}>
+      <form onSubmit={this.props.onClick}>
         <input 
           type="text" 
           name='term' 
-          placeholder="검색어를 입력하세요" 
-          onChange={this.onChange}>
+          placeholder="검색어를 입력하세요">
         </input>
         <input type="submit" value="search"></input>
       </form>
