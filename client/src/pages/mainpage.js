@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react';
 import ListContainer from '../containers/ListContainer'
-import Search from '../components/Search'
+import SearchContainer from '../containers/SearchContainer'
 
 class Mainpage extends PureComponent {
   render() {
     return (
       <body>
         <h1>Trend_bird Database</h1>
-        <Search/>
+        <SearchContainer/>
         <table>
           <tr>
             <th>PUB_DATE</th>
