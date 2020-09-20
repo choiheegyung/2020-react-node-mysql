@@ -1,17 +1,5 @@
-import { createStore } from 'redux';
-import data from './data.json';
+import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
+import trendsReducer from './trendsReducer';
 
-function reducer(state, action){
-  if (state===undefined){
-    state = {
-      term : '',
-      data : data
-    }
-    return state
-  }
-  if (action.type === 'SEARCH'){
-    return {...state, term:action.term}
-  }
-}
-
-export default createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+export default createStore(trendsReducer, applyMiddleware(thunk))

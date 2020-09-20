@@ -4,6 +4,8 @@ import './App.css';
 import { Route, Switch } from "react-router-dom";
 // container components
 import Mainpage from "./pages/mainpage";
+import { connect } from 'react-redux'
+import { fetchTrends } from './store/trendsAction'
 
 class App extends PureComponent {
   render() {
@@ -16,4 +18,4 @@ class App extends PureComponent {
   }
 }
 
-export default App;
+export default connect(null, fetchTrends)(App);
