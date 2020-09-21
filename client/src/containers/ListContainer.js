@@ -45,7 +45,7 @@ class ListContainer extends Component {
     }
 }
 
-function mapStateToProps(trends) {
+function mapStateToProps({ trends }) {
     return { trends };
 }
 
