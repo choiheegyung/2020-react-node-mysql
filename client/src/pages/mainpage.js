@@ -5,7 +5,7 @@ import SearchContainer from '../containers/SearchContainer';
 class Mainpage extends PureComponent {
     render() {
         return (
-            <body>
+            <div>
                 <h1>Trend_bird Database</h1>
                 <SearchContainer />
                 <table>
@@ -18,10 +18,10 @@ class Mainpage extends PureComponent {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* <ListContainer /> */}
+                        <ListContainer />
                     </tbody>
                 </table>
-            </body>
+            </div>
         )
     }
 }

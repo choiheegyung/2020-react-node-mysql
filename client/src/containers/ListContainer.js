@@ -1,15 +1,16 @@
-import React, { Component, Fragment } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 //import List from '../components/List'
 import { connect } from 'react-redux'
 import { fetchTrends } from '../store/trendsAction'
 
-class ListContainer extends Component {
+class ListContainer extends PureComponent {
     componentDidMount() {
         this.props.fetchTrends();
     }
 
     renderTrends() {
         // let term = this.props.term
+        console.log('renderTrends');
         console.log(this.props.trends);
         let data = this.props.trends;
         let list = [];
@@ -20,20 +21,17 @@ class ListContainer extends Component {
         //   });
         // }
         if (data) {
-            data.map(i => {
-                let datearray = i.pub_date.split('-');
+            for (var value of data) {
                 list.push(<tr>
-                    <td>{datearray[0]}-{datearray[1]}</td>
-                    <td>{i.contents}</td>
-                    <td>{i.more_info}</td>
-                    <td><img src={i.image} alt="" width='200' /></td>
+                    <td>{value.pub_date.split('-')[0]}-{value.pub_date.split('-')[1]}</td>
+                    <td>{value.contents}</td>
+                    <td>{value.more_info}</td>
+                    <td><img src={value.image} alt="" width='200' /></td>
                 </tr>)
-            });
+            }
         }
 
-        return (
-            { list }
-        )
+        return list;
     }
 
     render() {
@@ -49,4 +47,4 @@ function mapStateToProps({ trends }) {
     return { trends };
 }
 
-export default connect(mapStateToProps, { fetchTrends })(ListContainer)
+export default connect(mapStateToProps, { fetchTrends })(ListContainer);
