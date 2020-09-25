@@ -1,7 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 //import List from '../components/List'
 import { connect } from 'react-redux'
-import { fetchTrends } from '../store/trendsAction'
+import { fetchTrends } from '../actions'
 
 class ListContainer extends PureComponent {
     componentDidMount() {
@@ -10,8 +10,6 @@ class ListContainer extends PureComponent {
 
     renderTrends() {
         // let term = this.props.term
-        console.log('renderTrends');
-        console.log(this.props.trends);
         let data = this.props.trends;
         let list = [];
 
@@ -22,11 +20,11 @@ class ListContainer extends PureComponent {
         // }
         if (data) {
             for (var value of data) {
-                list.push(<tr>
+                list.push(<tr key={value.id}>
                     <td>{value.pub_date.split('-')[0]}-{value.pub_date.split('-')[1]}</td>
                     <td>{value.contents}</td>
-                    <td>{value.more_info}</td>
-                    <td><img src={value.image} alt="" width='200' /></td>
+                    <td>{value.moreinfo}</td>
+                    <td><img src={value.image_path} alt="" width='200' /></td>
                 </tr>)
             }
         }

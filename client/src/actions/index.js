@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { FETCH_TRENDS } from './types';
 
 export const fetchTrends = () => async dispatch => {
     const res = await axios.get('http://localhost:5000/trends');
-    dispatch({ type: 'SELECT_TRENDS_RESULT', payload: res.data });
-}
+    dispatch({ type: FETCH_TRENDS, payload: res.data });
+};
