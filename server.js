@@ -33,13 +33,21 @@ let app = http.createServer(function (request, response) {
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Headers", "X-Requested-With");
 
-        connection.query('SELECT id, pub_date, contents, moreinfo, image_path FROM trends;', function (error, database) {
+        //request.on('', function(){
+         //   param
+        //});
+
+        var query = 'SELECT id, pub_date, contents, moreinfo, image_path FROM trends where 1=1;';
+        if (param) query += ` param =` + param;
+
+        connection.query(query, function (error, database) {
             if (error) { console.log(error); }
-            data = database
-            fs.writeFile('./client/src/store/data.json', JSON.stringify(data), 'utf8', function (err) {
-                response.writeHead(200);
-                response.end(JSON.stringify(data));
-            })
+            data = database;
+            response.writeHead(200);
+            response.end(JSON.stringify(data));
+            //fs.writeFile('./client/src/store/data.json', JSON.stringify(data), 'utf8', function (err) {
+                
+            //})
         });
     }
 });

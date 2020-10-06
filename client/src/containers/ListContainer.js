@@ -41,8 +41,8 @@ class ListContainer extends PureComponent {
     }
 }
 
-function mapStateToProps({ trends }) {
-    return { trends };
-}
+//function mapStateToProps({ trends }) {
+//    return { trends };
+//}
 
-export default connect(mapStateToProps, { fetchTrends })(ListContainer);
+export default connect(({ trends }) => ({ trends }), { fetchTrends })(ListContainer);
