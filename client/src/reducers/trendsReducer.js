@@ -4,6 +4,8 @@ const trendsReducer = (state = [], action) => {
     switch (action.type) {
         case FETCH_TRENDS:
             return action.payload;
+        case SEARH:
+            //
         default:
             return state;
     }
