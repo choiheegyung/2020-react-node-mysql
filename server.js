@@ -37,12 +37,18 @@ let app = http.createServer(function (request, response) {
          //   param
         //});
 
-        var query = 'SELECT id, pub_date, contents, moreinfo, image_path FROM trends where 1=1;';
-        if (param) query += ` param =` + param;
+        let query = 'SELECT id, pub_date, contents, moreinfo, image_path FROM trends;';
+        
+        if (params.term && params.startdate) 
+            query += ' WHERE contents LIKE "%' + params.term + '%" AND date(pub_date) >= "' + params.startdate + '" AND date(pub_date) <= "' + params.enddate + '";';
+        else if (params.term) 
+            query += ' WHERE contents LIKE "%' + params.term + '%";';
+        else if (params.startdate) 
+            query += ' WHERE date(pub_date) >= "' + params.startdate + '" AND date(pub_date) <= "' + params.enddate + '"; ';
 
-        connection.query(query, function (error, database) {
+        connection.query(query, function (error, data) {
             if (error) { console.log(error); }
-            data = database;
+            // data = database;
             response.writeHead(200);
             response.end(JSON.stringify(data));
             //fs.writeFile('./client/src/store/data.json', JSON.stringify(data), 'utf8', function (err) {

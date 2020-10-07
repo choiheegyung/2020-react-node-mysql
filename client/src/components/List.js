@@ -1,10 +1,18 @@
 import React, { PureComponent, Fragment } from 'react';
+import Modal from 'react-modal'
 
 class List extends PureComponent {
+
+    openModal(){
+        this.modalIsOpen = true
+    }
+
     render() {
         // let term = this.props.term
         let data = this.props.data
         let list = [];
+
+        const modalIsOpen = false
 
         // if (term !== ''){
         //   data = data.filter(c => {
@@ -18,7 +26,11 @@ class List extends PureComponent {
                     <td>{datearray[0]}-{datearray[1]}</td>
                     <td>{i.contents}</td>
                     <td>{i.more_info}</td>
-                    <td><img src={i.image} alt="" width='200' /></td>
+                    <td><img src={i.image} alt="" width='200' onClick={this.openModal}/></td>
+                    <Modal isOpen={modalIsOpen}>
+                        <img src={i.image} alt="" width='100%' />
+                    </Modal>
+
                 </tr>)
             });
         }
