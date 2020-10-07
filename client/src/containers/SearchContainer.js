@@ -12,7 +12,7 @@ function mapDispatchToProps(dispatch){
     //   dispatch({type:'SEARCH', term:e.target.term.value});
     // }  
 
-    onClick: async function(e){
+    onClick: async (e) => {
       e.preventDefault()
       console.log(e.target.term.value);
 
