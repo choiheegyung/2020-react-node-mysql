@@ -1,5 +1,6 @@
-import { applyMiddleware, createStore } from 'redux';
-import thunk from 'redux-thunk';
-import reducers from '../reducers';
+// import { combineReducers } from 'redux';
+// import trendsReducer from '../reducers/trendsReducer';
 
-export default createStore(reducers, applyMiddleware(thunk))
+// export default combineReducers({
+//   trends: trendsReducer
+// });
