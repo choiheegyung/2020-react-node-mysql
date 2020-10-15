@@ -8,34 +8,18 @@ class ListContainer extends PureComponent {
     componentDidMount() {
         this.props.fetchTrends();
     }
-    openModal() {
-
-    }
 
     renderTrends() {
-        // let term = this.props.term
         let data = this.props.trends;
         let list = [];
-        let ModalIsOpen = false
 
         if (data) {
             for (var value of data) {
                 list.push(<tr key={value.id}>
                     <td>{value.pub_date.split('-')[0]}-{value.pub_date.split('-')[1]}</td>
                     <td>{value.contents}</td>
-                    <td>{value.moreinfo}</td>
-                    <td><img 
-                        src={value.image_path} 
-                        alt="IMG" 
-                        width='200' 
-                        onClick={function(){
-                            ModalIsOpen = true
-                            console.log(ModalIsOpen)
-                        }}/></td>
-                    <Modal isOpen={ModalIsOpen}>
-                        <h2>Modal</h2>
-                        <img src={value.image_path} alt="IMG" width='500'></img>
-                    </Modal>
+                    <td>{value.more_info}</td>
+                    <td><img src={value.image} alt="IMG" width='200' /></td>
                 </tr>)
             }
         }

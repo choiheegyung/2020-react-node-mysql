@@ -31,7 +31,7 @@ let app = http.createServer(function (request, response) {
 
         const params = url.parse(request.url, true).query;
 
-        let query = 'SELECT id, pub_date, contents, moreinfo, image_path FROM trends';
+        let query = 'SELECT id, pub_date, contents, more_info, image FROM insight';
 
         if (params.term && params.startdate) {
             query += ' WHERE contents LIKE "%' + params.term + '%" AND date(pub_date) >= "' + params.startdate + '" AND date(pub_date) <= "' + params.enddate + '";';
@@ -53,4 +53,5 @@ let app = http.createServer(function (request, response) {
     }
 });
 
-app.listen(5000);
+// app.listen(5000);
+app.listen(5000, () => console.log('listening on port 5000'));
